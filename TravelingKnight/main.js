@@ -29,7 +29,6 @@ const run = () => {
     console.log(`Path #${index + 1}:`);
     item.forEach((position) => console.log("\t", position));
   });
-  // console.log("result", POSSIBLE_MOVEMENTS);
 };
 
 //recursion to calculate the result

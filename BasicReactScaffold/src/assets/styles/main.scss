@@ -1,0 +1,24 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.main-app {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+
+  .content {
+    font-size: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-template-rows: none;
+    flex: 1;
+  }
+}

@@ -22,7 +22,7 @@ const run = () => {
 };
 
 const getResult = (position) => {
-  const queue = [position];
+  const queue = [{...position, path: []}];
   const result = [];
 
   while (queue.length > 0) {
@@ -53,10 +53,6 @@ const getResult = (position) => {
 
     //end of path => add path to result
     if (isEndOfPath) {
-      //path is undefined when the full path is just the starting position (e.g. BOARD_SIZE = 2)
-      if (!currentPosition.path) {
-        currentPosition.path = [];
-      }
       currentPosition.path.push({ x, y });
       result.push(currentPosition.path);
     }

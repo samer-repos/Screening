@@ -1,3 +1,5 @@
+const Denque = require("denque");
+
 const BOARD_SIZE = 3;
 const MAX_BOARD_COORDINATE = BOARD_SIZE - 1;
 const STARTING_POINT = {
@@ -22,10 +24,10 @@ const run = () => {
 };
 
 const getResult = (position) => {
-  const queue = [{...position, path: []}];
+  let queue = new Denque([{ ...position, path: [] }]);
   const result = [];
 
-  while (queue.length > 0) {
+  while (!queue.isEmpty()) {
     const currentPosition = queue.shift();
     const { x, y } = currentPosition;
 
@@ -36,15 +38,14 @@ const getResult = (position) => {
 
     let isEndOfPath = true;
     nextValidMovements.forEach((move) => {
-      const path = currentPosition.path ? [...currentPosition.path] : [];
-
       //if the result is -1 => cell was not visited
-      const indexOfNextMove = path.findIndex(
+      const indexOfNextMove = currentPosition.path.findIndex(
         (point) => point.x === move.x && point.y === move.y
       );
 
       //if cell was not visited
       if (indexOfNextMove < 0) {
+        const path = [...currentPosition.path];
         isEndOfPath = false;
         path.push({ x, y });
         queue.push({ ...move, path });

@@ -1,0 +1,16 @@
+{
+  "name": "TravelingKnight",
+  "version": "1.0.0",
+  "description": "The goal of this exercise is to track the movement of a knight given a chess board of **n** size\r ___",
+  "main": "main.js",
+  "dependencies": {
+    "denque": "^1.4.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
